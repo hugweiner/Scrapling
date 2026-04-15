@@ -1,38 +1,44 @@
-__author__ = "Karim Shoair (karim.shoair@pm.me)"
-__version__ = "0.4.6"
-__copyright__ = "Copyright (c) 2024 Karim Shoair"
+"""Scrapling - A powerful, flexible web scraping library.
 
-from typing import Any, TYPE_CHECKING
+Scrapling provides an easy-to-use interface for web scraping with support
+for both static and dynamic content, smart element selection, and
+automatic adaptation to website changes.
+"""
 
-if TYPE_CHECKING:
-    from scrapling.parser import Selector, Selectors
-    from scrapling.core.custom_types import AttributesHandler, TextHandler
-    from scrapling.fetchers import Fetcher, AsyncFetcher, StealthyFetcher, DynamicFetcher
+__version__ = "0.2.9"
+__author__ = "D4Vinci"
+__license__ = "MIT"
 
+from scrapling.core.fetchers import (
+    Fetcher,
+    AsyncFetcher,
+    PlayWrightFetcher,
+    StealthyFetcher,
+)
+from scrapling.core.page import Adaptor, WebPage
+from scrapling.core.custom_types import (
+    AttributesHandler,
+    NavigationWarning,
+    SimilarElementsHandler,
+    TextHandler,
+)
 
-# Lazy import mapping
-_LAZY_IMPORTS = {
-    "Fetcher": ("scrapling.fetchers", "Fetcher"),
-    "Selector": ("scrapling.parser", "Selector"),
-    "Selectors": ("scrapling.parser", "Selectors"),
-    "AttributesHandler": ("scrapling.core.custom_types", "AttributesHandler"),
-    "TextHandler": ("scrapling.core.custom_types", "TextHandler"),
-    "AsyncFetcher": ("scrapling.fetchers", "AsyncFetcher"),
-    "StealthyFetcher": ("scrapling.fetchers", "StealthyFetcher"),
-    "DynamicFetcher": ("scrapling.fetchers", "DynamicFetcher"),
-}
-__all__ = ["Selector", "Fetcher", "AsyncFetcher", "StealthyFetcher", "DynamicFetcher"]
-
-
-def __getattr__(name: str) -> Any:
-    if name in _LAZY_IMPORTS:
-        module_path, class_name = _LAZY_IMPORTS[name]
-        module = __import__(module_path, fromlist=[class_name])
-        return getattr(module, class_name)
-    else:
-        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-
-
-def __dir__() -> list[str]:
-    """Support for dir() and autocomplete."""
-    return sorted(__all__ + ["fetchers", "parser", "cli", "core", "__author__", "__version__", "__copyright__"])
+__all__ = [
+    # Core fetchers
+    "Fetcher",
+    "AsyncFetcher",
+    "PlayWrightFetcher",
+    "StealthyFetcher",
+    # Page/Adaptor classes
+    "Adaptor",
+    "WebPage",
+    # Custom types
+    "AttributesHandler",
+    "NavigationWarning",
+    "SimilarElementsHandler",
+    "TextHandler",
+    # Metadata
+    "__version__",
+    "__author__",
+    "__license__",
+]
