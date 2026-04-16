@@ -8,6 +8,7 @@ Personal fork notes:
 - Using this for learning purposes and personal scraping projects.
 - See upstream: https://github.com/D4Vinci/Scrapling
 - Added convenience alias: `Page` as shorthand for `Adaptor`.
+- Added convenience alias: `AsyncPage` as shorthand for `AsyncFetcher`.
 """
 
 __version__ = "0.2.9"
@@ -28,8 +29,9 @@ from scrapling.core.custom_types import (
     TextHandler,
 )
 
-# Personal convenience alias - I keep typing `Page` instead of `Adaptor`
+# Personal convenience aliases - I keep mixing up the class names
 Page = Adaptor
+AsyncPage = AsyncFetcher
 
 __all__ = [
     # Core fetchers
@@ -41,6 +43,8 @@ __all__ = [
     "Adaptor",
     "Page",  # convenience alias for Adaptor
     "WebPage",
+    # Fetcher aliases
+    "AsyncPage",  # convenience alias for AsyncFetcher
     # Custom types
     "AttributesHandler",
     "NavigationWarning",
