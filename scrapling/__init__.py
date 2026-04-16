@@ -7,6 +7,7 @@ automatic adaptation to website changes.
 Personal fork notes:
 - Using this for learning purposes and personal scraping projects.
 - See upstream: https://github.com/D4Vinci/Scrapling
+- Added convenience alias: `Page` as shorthand for `Adaptor`.
 """
 
 __version__ = "0.2.9"
@@ -27,6 +28,9 @@ from scrapling.core.custom_types import (
     TextHandler,
 )
 
+# Personal convenience alias - I keep typing `Page` instead of `Adaptor`
+Page = Adaptor
+
 __all__ = [
     # Core fetchers
     "Fetcher",
@@ -35,6 +39,7 @@ __all__ = [
     "StealthyFetcher",
     # Page/Adaptor classes
     "Adaptor",
+    "Page",  # convenience alias for Adaptor
     "WebPage",
     # Custom types
     "AttributesHandler",
