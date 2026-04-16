@@ -10,6 +10,7 @@ Personal fork notes:
 - Added convenience alias: `Page` as shorthand for `Adaptor`.
 - Added convenience alias: `AsyncPage` as shorthand for `AsyncFetcher`.
 - Added convenience alias: `PWFetcher` as shorthand for `PlayWrightFetcher`.
+- Added convenience alias: `Stealthy` as shorthand for `StealthyFetcher`.
 """
 
 __version__ = "0.2.9"
@@ -34,6 +35,7 @@ from scrapling.core.custom_types import (
 Page = Adaptor
 AsyncPage = AsyncFetcher
 PWFetcher = PlayWrightFetcher  # PlayWrightFetcher is a mouthful
+Stealthy = StealthyFetcher    # StealthyFetcher is also a mouthful
 
 __all__ = [
     # Core fetchers
@@ -48,6 +50,7 @@ __all__ = [
     # Fetcher aliases
     "AsyncPage",  # convenience alias for AsyncFetcher
     "PWFetcher",  # convenience alias for PlayWrightFetcher
+    "Stealthy",   # convenience alias for StealthyFetcher
     # Custom types
     "AttributesHandler",
     "NavigationWarning",
